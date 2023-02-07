@@ -24,8 +24,8 @@ Here are the prerequistes:
 
 The current repository includes some demonstrations on Raspberry Pi :
 
-- ```MPL115A2``` MQTT demo using a MPL115A2 sensor and sending the temperature to "test.mosquitto.org" using the "view-forest" topic (Yocto based)
-- ```BME688``` demo using a BME688 sensor and reading  some values (temperature, pressure, hygrometry, gas resistance -> IAQ + eCO2)
-- ```IFTTT``` Uses the IFTTT to send a alarm using a "webhook" if the temperature is greater than TMAX
-- ```Tago``` is a short demo of the TagoIO service (MQTT) with a simple dashboard
+- ```MPL115A2``` demo using a MPL115A2 sensor and sending the temperature with MQTT to "test.mosquitto.org" using the "view-forest" topic (Yocto)
+- ```BME688``` demo using a BME688 sensor and reading  some parameters such as temperature, pressure, hygrometry, gas resistance and calculatin IAQ + eCO2 (Raspbien or Yocto)
+- ```IFTTT``` demo using the IFTTT to send a alarm using a "webhook" if the temperature is greater than TMAX
+- ```Tago``` a short demo of the TagoIO service (MQTT) with a simple dashboard
 
