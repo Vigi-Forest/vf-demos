@@ -1,4 +1,4 @@
-# The "View Forest"  project
+# The "Vigi-Fire"  project
 
 ## Description
 
@@ -22,10 +22,10 @@ Here are the prerequistes:
 
 ## Current status
 
-The current repository includes 2 simple demonstrations on Raspberry Pi:
+The current repository includes some demonstrations on Raspberry Pi :
 
 - ```MPL115A2``` MQTT demo using a MPL115A2 sensor and sending the temperature to "test.mosquitto.org" using the "view-forest" topic (Yocto based)
-- ```BME688``` MQTT demo using a BME688 sensor and sending the values (temperature, pressure, hygrometry, gas resistance) to "test.mosquitto.org" using the "view-forest-bme688" topic
+- ```BME688``` demo using a BME688 sensor and reading  some values (temperature, pressure, hygrometry, gas resistance -> IAQ + eCO2)
 - ```IFTTT``` Uses the IFTTT to send a alarm using a "webhook" if the temperature is greater than TMAX
 - ```Tago``` is a short demo of the TagoIO service (MQTT) with a simple dashboard
 
