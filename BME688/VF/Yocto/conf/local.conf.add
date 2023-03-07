@@ -7,5 +7,8 @@ IMAGE_ROOTFS_EXTRA_SPACE = "10000"
 EXTRA_IMAGE_FEATURES += "package-management ssh-server-openssh debug-tweaks"
 PACKAGE_CLASSES = "package_ipk"
 
-# Enable I2C
+# Enable I2C 1 & 2
+RPI_KERNEL_DEVICETREE_OVERLAYS_append = " overlays/i2c-gpio.dtbo"
 RPI_EXTRA_CONFIG_append = " \ndtparam=i2c_arm=on"
+RPI_EXTRA_CONFIG_append = " \ndtoverlay=i2c-gpio,bus=2,i2c_gpio_sda=22,i2c_gpio_scl=23"
+
