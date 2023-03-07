@@ -1,0 +1,22 @@
+eCO2 demonstration
+==================
+
+Before using the eco2_alarm_bme688.sh, we use a script to 'burn' the sensor
+with a Python program based on https://github.com/pimoroni/bme680-python/blob/master/examples/indoor-air-quality.py during 300 seconds.
+
+
+pi@raspberrypi:~$ Pimoroni/bme680/examples/burn-in.py                           
+burn-in.py. Runs the sensor for a burn-in period (default 300 s) !              
+                                                                                
+                                                                                
+Press Ctrl+C to exit!                                                           
+                                                                                
+                                                                                
+Collecting gas resistance burn-in data for 300 seconds                          
+Gas: 5684.846331497602 Ohms                                                     
+Gas: 6599.298824499897 Ohms                                                     
+Gas: 8109.477952356817 Ohms                                                     
+Gas: 10136.205258156479 Ohms                                                    
+Gas: 12764.260071798963 Ohms                                                    
+Gas: 15105.027141845645 Ohms
+...
