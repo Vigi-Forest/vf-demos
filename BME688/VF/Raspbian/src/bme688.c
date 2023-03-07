@@ -470,12 +470,11 @@ int main(int ac, char **av)
       printf ("temp %.2f pressure %.2f humidity %.2f gsr %.2f iaq %g eco2 %g\n", data.temperature, data.pressure/100, data.humidity, data.gas_resistance, self.iaqScore, self.eCO2Value);
     else {
       printf("%d-%02d-%02d %02d:%02d:%02d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-      printf("Tmp %.2f °C, Prs %.2f hPa, Hum %.2f %%rH, GsR %.2f k\u03a9 IAQ %g eCO2 %g ppm, Status 0x%x\n",
+      printf("Temp %.2f °C Prs %.2f hPa Hum %.2f %%rH GSR %.2f kOhms IAQ %g eCO2 %g ppm\n",
 	     data.temperature,
 	     data.pressure/100,
 	     data.humidity,
-	     data.gas_resistance/1000, self.iaqScore, self.eCO2Value,
-	     data.status);
+	     data.gas_resistance/1000, self.iaqScore, self.eCO2Value);
     }
 #else
     printf("%d, %lu, %lu, %lu, 0x%x\n",
