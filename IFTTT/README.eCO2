@@ -1,8 +1,10 @@
 eCO2 demonstration
 ==================
 
-Before using the eco2_alarm_bme688.sh, we use a script to 'burn' the sensor
-with a Python program based on https://github.com/pimoroni/bme680-python/blob/master/examples/indoor-air-quality.py during 300 seconds.
+Before using the eco2_alarm_bme688.sh script, we use a script to collect
+'burn-in" data during 300 seconds.
+
+The script is based on indoor-air-quality.py from https://github.com/pimoroni/bme680-python .
 
 
 pi@raspberrypi:~$ Pimoroni/bme680/examples/burn-in.py                           
