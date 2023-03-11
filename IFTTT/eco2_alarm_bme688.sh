@@ -22,8 +22,9 @@ do
     # Get values
     TEMP=$(bme688 | cut -d " " -f4)
     GSR=$(bme688 | cut -d " " -f13)
+    IAQ=$(bme688 | cut -d " " -f16)
     PPM=$(bme688 | cut -d " " -f18)
-    echo "$TEMP C $GSR kOhms $PPM ppm"
+    echo "$TEMP C $GSR kOhms IAQ $IAQ $PPM ppm"
 
     # 4 digits for the eCO2
     M=$(($PPM/1000))
