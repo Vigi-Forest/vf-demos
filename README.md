@@ -1,4 +1,4 @@
-# The "Vigi-Fire"  project
+# The "Vigi-Forest"  project
 
 ## Description
 
