@@ -2,7 +2,7 @@
 #
 # Send an IFTTT event
 #
-#set -x
+set -x
 
 # Get location
 SENSOR_ID=$(curl -s https://ipinfo.io/$(curl -s https://ipinfo.io/ip) | jq '.city' | tr -d '"')
