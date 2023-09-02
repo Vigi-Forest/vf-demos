@@ -3,7 +3,7 @@ Testing the BME688 with Yocto
 
 You can test the BME688 configuration with Yocto (we have tested 3.1.16 - Dunfell).
 
-1- Build and validate a standard "core-image-base" image on a Raspberry Pi 3
+1- Build and validate a standard "core-image-base" image on a Raspberry Pi 3 (or any other model with Wi-Fi)
 
 -> https://meta-raspberrypi.readthedocs.io/en/latest/readme.html
 
@@ -28,13 +28,27 @@ $ sudo bmaptool copy tmp/deploy/images/raspberrypi3/vf-test-image-raspberrypi3.w
 root@raspberrypi3:~# wpa_passphrease <SSID> <SSID-password> >> /etc/wpa_supplicant.conf
 root@raspberrypi3:~# reboot
 
-6- Test the program from the console or a SSH connection
+6- Read the data (temperature + CO2) from MQTT
+
+The 'bme688' service is started at boot time and publish the values (temperature an eCO2) using MQTT (every 30 seconds).
+
+It's based on the 'bme688' utility :
 
 root@raspberrypi3:~# bme688 
 2018-03-09 12:51:51 Nr 1, Tmp 21.96 °C, Prs 1020.14 hPa, Hum 50.90 %rH, GsR 30 4
 .24 kΩ, Status 0xa0                                                             
-2018-03-09 12:51:54 Nr 2, Tmp 21.96 °C, Prs 1020.16 hPa, Hum 50.89 %rH, GsR 5. 7
-6 kΩ, Status 0xb0     
+
+You can read the frames with the following command :
+
+$ mosquitto_sub -h test.mosquitto.org -t vigi-forest-pf
+{"time":"03/09/18 12:49:43", "temp":"25.53", "CO2":"614"}
+{"time":"03/09/18 12:50:13", "temp":"25.49", "CO2":"609"}
+{"time":"03/09/18 12:50:43", "temp":"25.42", "CO2":"605"}
+{"time":"03/09/18 12:51:14", "temp":"25.38", "CO2":"604"}
+...
+
+You can also read the data and display graphs with MQTT-Explorer !
+
 
 
 
