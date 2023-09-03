@@ -4,6 +4,9 @@
 auto lo
 iface lo inet loopback
 
+# Ethernet interface
+#auto eth0
+
 # Wireless interfaces
 auto wlan0
 iface wlan0 inet dhcp

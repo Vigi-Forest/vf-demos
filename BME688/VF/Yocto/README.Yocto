@@ -7,9 +7,13 @@ You can test the BME688 configuration with Yocto (we have tested 3.1.16 - Dunfel
 
 -> https://meta-raspberrypi.readthedocs.io/en/latest/readme.html
 
-2- Add the VL layer to the environment
+2- Add the some layers to the environment
 
-$ bitbake-layers add-layer <layer-path>/meta-vf
+$ bitbake-layers add-layer <layer-path>/meta-openembedded/meta-oe
+$ bitbake-layers add-layer <layer-path>/meta-openembedded/meta-python
+$ bitbake-layers add-layer <layer-path>/meta-openembedded/meta-networking
+
+$ bitbake-layers add-layer <layer-path>/meta-vf  <-- the VF Yocto layer !
 
 3- Add the following lines to conf/local.conf
 
@@ -32,7 +36,13 @@ root@raspberrypi3:~# reboot
 
 The 'bme688' service is started at boot time and publish the values (temperature an eCO2) using MQTT (every 30 seconds).
 
-It's based on the 'bme688' utility :
+-> Please note you MUST 'burn' the sensor before using it with the following procedure :
+
+root@raspberrypi3:~# /etc/init.d/bme688 stop
+root@raspberrypi3:~# burn-in.py			<-- burn the sensor during mn
+
+
+The service is based on the 'bme688' utility :
 
 root@raspberrypi3:~# bme688 
 2018-03-09 12:51:51 Nr 1, Tmp 21.96 °C, Prs 1020.14 hPa, Hum 50.90 %rH, GsR 30 4
@@ -48,7 +58,3 @@ $ mosquitto_sub -h test.mosquitto.org -t vigi-forest-pf
 ...
 
 You can also read the data and display graphs with MQTT-Explorer !
-
-
-
-
