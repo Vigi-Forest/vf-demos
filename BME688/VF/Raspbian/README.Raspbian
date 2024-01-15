@@ -49,13 +49,10 @@ $ cd BME688/VF/Raspbian
 $ make
 $ sudo make install
 
-The default option displays the values every 3s:
-
 $ bme688
-2022-10-08 12:39:40 Nr 1, Tmp 22.08 °C, Prs 1021.19 hPa, Hum 52.66 %rH, GsR 6. 2
-0 kΩ, Status 0xa0
+2024-01-15 14:52:08 Temp 25.04 C Prs 1005.43 hPa Hum 27.63 % GSR 658.01 kOhms IAQ 40 eCO2 408 ppm
 
-The JSON version (-j option) sends only ONE frame in JSON format (same with -t with text format):
+The JSON version (-j option) sends the frame in JSON format (same with -t with text format):
 
 $ bme688 -j                                           
 {"temperature":"22.08", "pressure":"1021.14", "humidity":"52.61", "gsr":"5.82"}
@@ -66,3 +63,9 @@ $ sudo apt-get install python3-pip
 $ sudo pip3 install bme680  
 $ cd ~/view-forest/BME688/VF/Raspbian
 $ ./burn-in.py
+
+- Test the GSR/IAQ, it should give you a correct value
+
+$ bme688                        
+2024-01-15 14:45:44 Temp 24.20 C Prs 1005.46 hPa Hum 28.65 % GSR 1988.17 kOhms I
+AQ 40 eCO2 404 ppm
