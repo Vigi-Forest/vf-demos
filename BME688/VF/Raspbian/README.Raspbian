@@ -7,13 +7,13 @@ Raspbian installation for testing BME688
 
 $ sudo dd if=2022-01-28-raspios-bullseye-armhf-lite.img of=/dev/sda bs=1M 
 
-- Create an empty SSH file to enable the SSH server
+- Enable the console
 
-$ echo > /media/<user>/boot/SSH
+Edit config.txt (on the first partition, aka "boot") and add the following line at the end:
 
-- Boot the Pi and connect to is with SSH (with an Ethernet connection !)
+enable_uart=1
 
-$ ssh pi@<board-IP-address> 
+- Boot the Pi and connect on the console as the user "pi"
 
 -> the default password is "raspberrypi"
 
@@ -21,7 +21,6 @@ $ ssh pi@<board-IP-address>
 
 * Advanced Options / Expand Filesystem
 * Interface options / I2C
-* Interface options / Serial Port (to activate a console)
 * System Options / Wireless LAN
 
 -> reboot the system
@@ -45,7 +44,7 @@ $ i2detect -y 1
 
 - Download, compile and test the program
 
-$ git clone https://github.com/pficheux/view-forest.git
+$ git clone https://github.com/OpenVigi-Fire/vf-demos.git
 $ cd BME688/VF/Raspbian
 $ make
 $ sudo make install
@@ -61,5 +60,9 @@ The JSON version (-j option) sends only ONE frame in JSON format (same with -t w
 $ bme688 -j                                           
 {"temperature":"22.08", "pressure":"1021.14", "humidity":"52.61", "gsr":"5.82"}
 
+- Configure the GSR (Gas Resistance) feature
 
-
+$ sudo apt-get install python3-pip                                         
+$ sudo pip3 install bme680  
+$ cd ~/view-forest/BME688/VF/Raspbian
+$ ./burn-in.py
