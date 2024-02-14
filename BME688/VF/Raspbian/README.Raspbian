@@ -7,6 +7,9 @@ Raspbian installation for testing BME688
 
 $ sudo dd if=2022-01-28-raspios-bullseye-armhf-lite.img of=/dev/sda bs=1M 
 
+=> image disponible sur https://drive.google.com/file/d/1lhqAVYrtQEJr10wNfO6-j567Q1qw96VL/view?usp=sharing
+
+
 - Enable the console
 
 Edit config.txt (on the first partition, aka "boot") and add the following line at the end:
@@ -21,7 +24,8 @@ enable_uart=1
 
 * Advanced Options / Expand Filesystem
 * Interface options / I2C
-* System Options / Wireless LAN
+* System Options / Wireless LAN (or use an Ethernet connection)
+
 
 -> reboot the system
 
