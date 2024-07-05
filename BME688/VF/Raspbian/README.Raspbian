@@ -46,30 +46,27 @@ $ i2detect -y 1
 
 -> the address must be 77
 
-- Download, compile and test the program
+- Install the Python library for the "burn in"
+
+
+- Download, compile and test the bme688 program and the "burn in" utility
+
+$ sudo apt-get install python3-pip                                         
+$ sudo pip3 install bme680  
 
 $ git clone https://github.com/OpenVigi-Fire/vf-demos.git
-$ cd BME688/VF/Raspbian
+$ cd BME688/VF/Raspbian/src
 $ make
 $ sudo make install
+
 
 $ bme688
 2024-01-15 14:52:08 Temp 25.04 C Prs 1005.43 hPa Hum 27.63 % GSR 658.01 kOhms IAQ 40 eCO2 408 ppm
 
 The JSON version (-j option) sends the frame in JSON format (same with -t with text format):
 
-$ bme688 -j                                           
-{"temperature":"22.08", "pressure":"1021.14", "humidity":"52.61", "gsr":"5.82"}
+$ bme688 -j                                            
+{"temperature":"25.92", "pressure":"1009.02", "humidity":"40.32", "gsr":"25193.61", "iaq":"10", "eco2":"297"}
+$ bme688 -t                                            
+temp 25.93 pressure 1008.97 humidity 40.60 gsr 18898.94 iaq 20 eco2 337
 
-- Configure the GSR (Gas Resistance) feature
-
-$ sudo apt-get install python3-pip                                         
-$ sudo pip3 install bme680  
-$ cd ~/view-forest/BME688/VF/Raspbian
-$ ./burn-in.py
-
-- Test the GSR/IAQ, it should give you a correct value
-
-$ bme688                        
-2024-01-15 14:45:44 Temp 24.20 C Prs 1005.46 hPa Hum 28.65 % GSR 1988.17 kOhms I
-AQ 40 eCO2 404 ppm
