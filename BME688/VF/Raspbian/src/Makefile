@@ -10,7 +10,7 @@ CFLAGS= -O2 -I$(PYTHON_DIR) -I$(LIBIAQ_DIR) -DPF
 
 SRCS= $(BME68X_DIR)/bme68x.c bme688.c $(LIBIAQ_DIR)/iaq_eco2.c $(LIBIAQ_DIR)/libiaq.h
 
-PROGS= bme688
+PROGS= bme688 burn-in.py
 
 $(PROGS): $(SRCS)
 	$(CC) $(CFLAGS) $(SRCS)  -lm -lwiringPi -l$(PYTHON) -o $@
