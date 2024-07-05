@@ -46,10 +46,7 @@ $ i2detect -y 1
 
 -> the address must be 77
 
-- Install the Python library for the "burn in"
-
-
-- Download, compile and test the bme688 program and the "burn in" utility
+- Download, compile and test the bme688 program and the "burn-in" utility
 
 $ sudo apt-get install python3-pip                                         
 $ sudo pip3 install bme680  
@@ -58,6 +55,23 @@ $ git clone https://github.com/OpenVigi-Fire/vf-demos.git
 $ cd BME688/VF/Raspbian/src
 $ make
 $ sudo make install
+
+-> for a correct measurement, you need to use "burn-in.py" first
+
+$ burn-in.py
+burn-in.py. Runs the sensor for a burn-in period (default 300 s) !                                     
+                                                                                                       
+                                                                                                       
+Press Ctrl+C to exit!                                                                                  
+                                                                                                       
+                                                                                                       
+Collecting gas resistance burn-in data for 300 seconds                                                 
+Gas: 8931.063354730672 Ohms                                                                            
+Gas: 12926.681478489194 Ohms                                                                           
+Gas: 16145.307769929363 Ohms                                                                           
+Gas: 19458.80206749772 Ohms                                                                            
+Gas: 22614.84098939929 Ohms
+...
 
 
 $ bme688
